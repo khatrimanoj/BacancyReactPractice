@@ -1,0 +1,102 @@
+@use "../utils" as *;
+
+aside {
+    position: relative;
+    max-width: 280px;
+    width: 100%;
+    background-color: var(--color-primary);
+    padding: 0px 0 40px;
+    overflow: auto;
+    @include flex-direction($value: column);
+    @include scrollbars(5px, var(--color-primary), #ececec);
+    @include until-width(md) {
+        max-width: 100%;
+        position: absolute;
+        padding: 0;
+        top: 57px;
+        left: 0;
+        right: 0;
+        height: 0;
+        z-index: 1;
+        @include transition(height .3s ease-in-out);
+        &.active {
+            display: block;
+            overflow: auto;
+            height: calc(100% - 57px);
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    .dropdown {
+        width: 100%;
+        button {
+            background-color: var(--color-white);
+            padding: 16px !important;
+            width: 100%;
+            text-align: left;
+            &.dropdown-toggle {
+                @include until-width(md) {
+                    &::after {
+                        right: 15px;
+                    }
+                }
+            }
+        }
+        .dropdown-menu {
+            left: 0;
+            width: 100%;
+            border-radius: 0;
+            box-shadow: none;
+            li {
+                padding: 0;
+                opacity: 1;
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+    .brand {
+        padding: 10px 20px;
+        color: var(--color-white);
+        border-bottom: 1px solid var(--color-box-border);
+    }
+    .sidebar {
+        width: 100%;
+        height: calc(100% - 60px);
+        @include flexbox();
+        @include flex-direction($value: column);
+        ul {
+            flex: 1;
+            counter-reset: my-sec-counter;
+            // @include until-width(md) {
+            //     padding: 0 16px;
+            // }
+            // @include until-width(sm) {
+            //     padding: 0 10px;
+            // }
+            li {
+                padding: 0 20px;
+                counter-increment: my-sec-counter;
+                position: relative;
+                @include flexbox();
+                @include align-items($value: center);
+                border-bottom: 1px solid var(--color-box-border);
+                &::before {
+                    content: counter(my-sec-counter) ". ";
+                    @include toRem(font-size, 18);
+                    color: var(--color-white);
+                    font-weight: 500;
+                    @include toRem(margin-right, 5);
+                }
+                a {
+                    @include toRem(font-size, 18);
+                    color: var(--color-white);
+                    font-weight: 500;
+                    padding: 5px 0;
+                    @include flexbox();
+                }
+            }
+        }
+    }
+}

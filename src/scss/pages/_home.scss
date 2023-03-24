@@ -1,0 +1,58 @@
+@use "../utils/" as *;
+
+.banner {
+    width: 100%;
+    height: 100%;
+    @include flexbox();
+    @include align-items($value: center);
+    @include justify-content($value: center);
+    background-color: var(--color-border-light);
+    .container {
+        position: relative;
+        @include flexbox();
+        @include flex-direction($value: column);
+        @include align-items($value: center);
+        @include justify-content($value: center);
+    }
+    .bannerImage {
+        width: 100%;
+        img {
+            width: 100%;
+        }
+    }
+    &Content {
+        width: 100%;
+        @include flexbox();
+        @include flex-direction($value: column);
+        @include align-items($value: center);
+        text-align: center;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        h1 {
+            @include toRem(font-size, 48);
+            color: var(--color-primary);
+        }
+        p {
+            @include toRem(font-size, 24);
+            color: var(--color-black);
+            @include toRem(margin-bottom, 20);
+        }
+    }
+}
+section {
+    width: 100%;
+    position: relative;
+    padding: 50px 0;
+    .row {
+        @include flexbox();
+        @include flex-wrap($value: wrap);
+        @include toRem(gap, 15);
+    }
+    .installation {
+        &__content {
+            @include flexbox();
+            @include flex-direction($value: column);
+        }
+    }
+}
