@@ -37,7 +37,7 @@ class Menu extends Component {
 
       if (typeof m.menu === "undefined") {
         link.push(
-          <li>
+          <li key={i}>
             <a href={m.link}>
               <span>{i}</span>
             </a>
@@ -55,7 +55,11 @@ class Menu extends Component {
         });
 
         link.push(
-          <li className="submenu-arrow" ref={tmpSubmenu[tmpLength].caret}>
+          <li
+            className="submenu-arrow"
+            ref={tmpSubmenu[tmpLength].caret}
+            key={i}
+          >
             <a
               href={m.link}
               onClick={this.menuClickEvent.bind(this, tmpLength)}

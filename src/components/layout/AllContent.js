@@ -8,6 +8,9 @@ import Section from "./Section";
 import HeaderOne from "../HeaderComponent/HeaderOne/HeaderOne";
 import icon1 from "../../img/airlines.jpg";
 import InputField from "../Input/InputField";
+import Carousel from "../CarouselSlider/Carousel";
+import Carousel1 from "../CarouselSlider/Carousel1";
+import { CarouselItem } from "../CarouselSlider/Carousel1";
 
 import Logo from "../../img/mindbox.svg";
 import Header from "../NavigationWithSubMenu/Header";
@@ -76,6 +79,8 @@ export default function AllContent() {
       link: "#",
     },
   };
+
+  const items = ["Item 1", "Item 2", "Item 3"];
 
   return (
     <div className="main-content">
@@ -341,19 +346,50 @@ export default function AllContent() {
       </Section>
       <Section id="navbarComponent">
         <div className="container">
-          <HeaderOne
-            HeaderBrand="Logo"
-            // Headerlogo={Logo}
-            menulink={headerone}
-            button="btn btn-primary btn-sm"
-          />
-          <HeaderOne
-            // HeaderBrand="Logo"
-            Headerlogo={Logo}
-            menulink={headertwo}
-            button="btn btn-primary btn-sm"
-          />
-          <Header />
+          <h2 className="mb-3">Header Component</h2>
+          <div className="row">
+            <HeaderOne
+              HeaderBrand="Logo"
+              // Headerlogo={Logo}
+              menulink={headerone}
+              button="btn btn-primary btn-sm"
+            />
+            <HeaderOne
+              // HeaderBrand="Logo"
+              Headerlogo={Logo}
+              menulink={headertwo}
+              button="btn btn-primary btn-sm"
+            />
+            <Header />
+          </div>
+        </div>
+      </Section>
+      <Section id="carouselComponent">
+        <div className="container">
+          <h2 className="mb-3">Carousel Slider Component</h2>
+          <div className="row">
+            <Carousel items={items} />
+          </div>
+          <br></br>
+          <br></br>
+          <h2 className="mb-3">Carousel with Dynamic indicator and arrow</h2>
+          <Carousel1>
+            <CarouselItem>
+              <img src={bannerImage} alt="carousel slider" />
+            </CarouselItem>
+            <CarouselItem>
+              <img src={bannerImage} alt="carousel slider" />
+            </CarouselItem>
+            <CarouselItem>
+              <img src={bannerImage} alt="carousel slider" />
+            </CarouselItem>
+            <CarouselItem>
+              <img src={bannerImage} alt="carousel slider" />
+            </CarouselItem>
+            <CarouselItem>
+              <img src={bannerImage} alt="carousel slider" />
+            </CarouselItem>
+          </Carousel1>
         </div>
       </Section>
     </div>

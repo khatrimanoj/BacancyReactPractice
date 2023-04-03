@@ -25,6 +25,11 @@ export default function Sidebar(props) {
       title: "Nabar Component",
       url: "#navbarComponent",
     },
+    {
+      id: 6,
+      title: "Carousel Component",
+      url: "#carouselComponent",
+    },
   ];
   const listItem = sidebarList.map((items, i) => (
     <li key={i}>

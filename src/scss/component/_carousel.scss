@@ -1,0 +1,80 @@
+@use "../utils" as *;
+
+.carousel {
+    width: 100%;
+    @include flexbox();
+    &__content {
+        position: relative;
+        overflow: hidden;
+        @include flexbox();
+        width: 100%;
+    }
+    &__item {
+        transition: .3s transform;
+        width: 100%;
+        height: 100%;
+        @include justify-content($value: center);
+        @include align-items($value: center);
+        display: none;
+        background-color: var(--color-primary);
+        &.active {
+            @include flexbox();
+        }
+
+    }
+}
+
+.carousel1 {
+    overflow: hidden;
+    .carousel-wrapper {
+        position: relative;
+        .prev-next {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            @include flexbox();
+            @include align-items($value:center);
+            z-index: 1;
+            &.next {
+                right: 0;
+            }
+            .btn {
+                background-color: var(--color-primary);
+                color: var(--color-white);
+            }
+        }
+    }
+    .inner {
+      white-space: nowrap;
+      transition: transform 0.3s;
+      .carousel-item {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 200px;
+        background-color: green;
+        color: #fff;
+      }
+    }
+    .indicators {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .indicators > button {
+      margin: 5px;
+      opacity: 0.4;
+    }
+    
+    .indicators > button.active {
+      color: var(--color-primary);
+      font-weight: bold;
+      opacity: 1;
+
+    }
+    
+  }
+  
+  

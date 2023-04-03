@@ -3,11 +3,11 @@ const Navbar = () => {
   const menuItems = [
     {
       title: "Home",
-      url: "/",
+      url: "#",
     },
     {
       title: "Services",
-      url: "/services",
+      url: "#",
       submenu: [
         {
           title: "web design",
@@ -44,7 +44,7 @@ const Navbar = () => {
     },
     {
       title: "About",
-      url: "/about",
+      url: "#",
       submenu: [
         {
           title: "Who we are",
