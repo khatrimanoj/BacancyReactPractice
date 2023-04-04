@@ -1,0 +1,103 @@
+@use "../utils" as *;
+
+.hasDropdown {
+    position: relative;
+    .dropdown {
+        display: none;
+        position: absolute;
+        left: 0;
+        background-color: var(--color-white);
+        opacity: 0;
+        top: 0;
+        visibility: hidden;
+        z-index: 1;
+        @include toRem(width, 200);
+        @include box-shadow(0px 5px 2.5px rgba(0,0,1,0.2));
+        @include transition(.3s all ease-in-out);
+        ul {
+            @include flexbox();
+            @include flex-direction($value: column);
+            @include align-items($value: flex-start);
+            @include toRem(padding-block, 10);
+            @include toRem(gap, 0);
+            li {
+                width: 100%;
+                @include flexContainer(row, flex-start, center);
+                padding: 0;
+                a {
+                    @include toRem(font-size, 20);
+                    font-family: "SSPro-regular";
+                    color: var(--color-black);
+                    width: 100%;
+                    @include toRem(padding-block, 6);
+                    @include justify-content($value: flex-start);
+                    position: relative;
+                    @include transition(.3s ease-in-out);
+                    &::after {
+                        display: none;
+                    }
+                    &:hover {
+                        background-color: $smoke;
+                        color: var(--color-secondary);
+                    }
+                }
+            }
+        }
+        &.open {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            @include toRem(top, 85);
+        }
+    }
+}
+
+.dropdown {
+    position: relative;
+    &-menu {
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100% !important;
+        display: none;
+        background-color: var(--color-white);
+        border: 1px solid #CECBCB;
+        border-radius: 5px;
+        z-index: 1;
+        margin-top: 2px;
+        overflow: hidden;
+        .dropdown-item {
+            position: relative;
+            padding: 8px 10px;
+            cursor: pointer;
+            &:not(:last-child) {
+                border-bottom: 1px solid #E9ECEE;
+            }
+            @include toRem(font-size, 13);
+            color: #2A374E;
+            &:hover {
+                background-color: #FAF3F3;
+                font-weight: 600;
+            }
+            &.selected {
+                background-color: #FAF3F3;
+                font-weight: 600;
+                &::after {
+                    content: '';
+                    position: absolute;
+                    right: 10px;
+                    width: 5px;
+                    height: 9px;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                    @include flexbox();
+                    @include align-items($value: center);
+                    border-bottom: 2px solid var(--color-primary);
+                    border-right: 2px solid var(--color-primary);
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+}
