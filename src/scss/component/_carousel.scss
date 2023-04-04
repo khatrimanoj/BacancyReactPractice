@@ -15,8 +15,9 @@
         height: 100%;
         @include justify-content($value: center);
         @include align-items($value: center);
-        display: none;
+        // display: none;
         background-color: var(--color-primary);
+        aspect-ratio: 1 / 1;
         &.active {
             @include flexbox();
         }
