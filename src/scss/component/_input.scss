@@ -1,0 +1,48 @@
+@use "../utils/" as *;
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active
+{
+ -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+.form-control {
+    background: #FFFFFF;
+    border: 1px solid var(--color-box-border);
+    @include border-box;
+    @include border-radius(6px);
+    height: 40px;
+    @include toRem(font-size, 16);
+    color: var(--color-title);
+    padding: 0 17px;
+    outline: none;
+    &::placeholder {
+        color: var(--color-placeholder);
+    }
+    &:invalid[focused="true"] ~ .error {
+        border: 1px solid var(--color-primary);
+        box-shadow: none;
+        display: block;
+    }
+}
+.error {
+    border-color: var(--color-primary);
+    display: none;
+}
+
+.input-group { 
+    @include flexbox();
+    @include align-items($value: center);
+    @include flex-wrap($value: nowrap);
+    input {
+        border: 0;
+        box-shadow: none;
+        width: 100%;
+        height: 100%;
+        margin-left: 15px !important;
+        &:focus {
+            outline: none;
+            border: none;
+        }
+    }
+}

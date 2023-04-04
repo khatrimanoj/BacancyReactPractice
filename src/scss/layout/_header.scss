@@ -1,0 +1,259 @@
+@use "../utils" as *;
+
+header {
+    background: var(--color-white);
+    margin-top: 60px;
+    .title-search {
+        @include flexbox();
+        @include align-items($value: center);
+        @include justify-content($value: space-between);
+        padding: 26px 0;
+    }
+    @include respond-above(md) {
+        margin-top: 0;
+    }
+}
+
+
+/*============================header css start here=============================*/
+header {
+    width: 100%;
+    height: 72px;
+    float: left;
+    background: var(--color-white);
+  }
+  .menu {
+    width: auto;
+    list-style: none;
+    float: right;
+    margin: 0;
+    padding: 0;
+    line-height: 72px;
+  
+  }
+  .menu li {
+    display: inline-block;
+    padding: 0 15px;
+  }
+  .submenu {
+    opacity: 0;
+    display: none;
+  }
+  header .logo {
+    float: left;
+    line-height: 72px;
+  }
+  header .logo img {
+    vertical-align: middle;
+  }
+  .header-btn {
+    float: right;
+    line-height: 72px;
+  }
+  .header-btn button {
+    margin: 16px 0;
+  }
+  .header-two .menu {
+     float: none;
+  }
+  header .notification {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    margin: 0;
+    justify-content: flex-end;
+    flex-wrap: wrap
+  }
+  header .notification li {
+      /* line-height: 72px; */
+    margin-left: 30px;
+  
+  }
+  header .form-group.search input {
+    border: none;
+    background: transparent;
+    text-indent: 25px;
+  }
+  header .form-group.search input::placeholder {
+    color: #5e636b;
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+  .search-icon {
+    position: absolute;
+    position: absolute;
+    top: 8px;
+  }
+  .headerthree {
+    height: auto;
+  }
+  .headertop {
+    width: 100%;
+    float: left;
+    height: 40px;
+    background-color: #000a19;
+  }
+  
+  .headerthree .headertop .dropdown button {
+    background: transparent;
+    color: var(--color-white);
+    // background: transparent url(images/downarrow-white.png) no-repeat;
+    background-position: center right 0;
+  }
+  
+  .menu-link.horizontal.no-margin-right li {
+     margin-right: 0;
+  }
+  .headerfour {
+    height: auto;
+  }
+  .header-bottom {
+    width: 100%;
+    float: left;
+    height: 72px;
+    border-top: 1px solid var(--color-smoke);
+  }
+  .line-height-72 {
+    line-height: 72px;
+  }
+  .devider-link {
+    width: 100%;
+    line-height: 72px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    margin: 0;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+  }
+  .devider-link li {
+    display: inline-block;
+    padding: 0 20px;
+    height: 72px;
+    line-height: 72px;
+    border-right: 1px solid var(--color-smoke);
+  }
+  .devider-link li:last-child {
+    border-right: none;
+    padding-right:0;
+  }
+  .menubar {
+    width: 100%;
+    float: left;
+  }
+  .menubar .menubar-ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    position: relative;
+  }
+  .menubar-ul, .menubar-sub-ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+  .menubar-sub-ul {
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    display: none;
+  }
+  .menubar-ul > li, .menubar-sub-ul > li {
+    width: 100%;
+  }
+  .menubar-ul > li > a, .menubar-sub-ul > li > a {
+    color: var(--color-black);
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+  .menubar-ul > li {
+    position: relative;
+    width: auto;
+    display: inline-block;
+    padding: 0 15px;
+    line-height: 72px;
+  }
+  
+  .menubar-sub-ul > li {
+    line-height: 30px;
+    padding: 5px 15px;
+    font-size: 14px;
+    &:not(:last-child) {
+        border-bottom: 1px solid var(--color-box-border);
+    }
+  }
+  .menubar-sub-ul > li:hover {
+    background: var(--color-border-light);
+  }
+  .menubar-ul > li:hover .menubar-sub-ul {
+    visibility: visible;
+    display: block;
+    height: auto;
+    position: absolute;
+    top: 100%;
+    width: 200px;
+    background: #fff;
+    border: 1px solid var(--color-box-border);
+    border-radius: 6px;
+    z-index: 2; 
+  }
+  .submenu-arrow::before {
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    // background:transparent url(images/downarrow.png) no-repeat;
+    background-position: center;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+  }
+  .submenu-arrow::before
+  .cpc-hidden {
+    display: none;
+  }
+  .menubar-ul > li.submenu-arrow {
+    padding-right: 30px;
+  }
+  .header-one .menubar .menubar-ul {
+    justify-content: flex-end;
+  }
+  .header-two .menubar .menubar-ul {
+    justify-content: center;
+  }
+  .header-six .avitar-label {
+    flex-direction: row-reverse;
+  }
+  .header-six .avitar-label .icon {
+    margin-left: 8px;
+    margin-right: 0;
+  }
+  header.white .menubar-ul > li > a,
+  header.white .notification li,
+  header.white .subtitle1,
+  header.white .subtitle2,
+  header.white .notification li .btn-text-black,
+  header.white .form-group.search input,
+  header.white .form-group.search input::placeholder,
+  header.white .search-icon,
+  header.white .search-brn,
+  header.white .btn,
+  header.white .body2,
+  header.white .devider-link li {
+    color: #fff !important;
+  }
+  header.white .submenu-arrow::before {
+    // background: transparent url(images/downarrow-white.png) no-repeat;
+    background-position: center; 
+  }
+  /*============================header css end here=============================*/

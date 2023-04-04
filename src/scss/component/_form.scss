@@ -1,0 +1,43 @@
+@use "../utils" as *;
+
+form {
+    width: 100%;
+    position: relative;
+    .form-group {
+        position: relative;
+    }
+    .button {
+        display: block;
+    }
+    .form-label {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
+.form-content {
+    width: 100%;
+    // padding: 35px 15px;
+    position: relative;
+    @include flexbox();
+    @include flex-wrap($value: wrap);
+    @include align-items($value: center);
+    @include toRem(gap, 20);
+    .form-group {
+        @include flexbox();
+        @include flex-direction($value: column);
+    }
+    .button {
+        @include flexbox();
+        @include align-items($value: center);
+        @include toRem(margin-top, 35);
+        .btn:not(:last-child) {
+            margin-right: 15px;
+        }
+        .btn {
+            @include until-width(sm) {
+                flex: auto;
+            }
+        }
+    }
+}

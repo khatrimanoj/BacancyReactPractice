@@ -1,0 +1,220 @@
+@use "../utils" as *;
+.btn {
+    height: 40px;
+    padding: 0 25px;
+    @include flexbox();
+    @include align-items($value: center);
+    @include justify-content($value: center);
+    @include transition(.3s ease-in-out);
+    @include border-radius(5px);
+    @include toRem(font-size, 16);
+    font-weight: 600;
+    outline: none;
+    &.btn-small {
+        height: 32px;
+        padding: 0 15px;
+        @include toRem(font-size, 14);
+    }
+    &.btn-medium {
+        height: 45px;
+        padding: 0 32px;
+    }
+    &.btn-large {
+        height: 55px;
+        padding: 0 40px;
+        @include toRem(font-size, 20);
+    }
+    &.btn-primary {
+        border: 0;
+        color: var(--color-white);
+        position:relative;
+        overflow:hidden;
+        span {
+            position: relative;
+            @include flexbox();
+            @include align-items($value: center);
+            @include toRem(gap, 10);
+            color: var(--color-white);
+            @include transition(.3s ease-in-out);
+        }
+        &:before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background : var(--color-primary);
+            color: var(--color-white);
+            left: 0;
+            bottom: 0;
+            @include transition(.3s ease-in-out);
+            opacity: 1;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border: 2px solid var(--color-primary);
+            width: 100%;
+            height: 100%;
+            @include border-radius(5px);
+        }
+        &:hover {
+            span {
+                color: var(--color-primary);
+            }
+            &:before {
+                width: 0;
+                color: var(--color-white);
+            }
+        }
+    }
+    &.btn-secondary {
+        border: 0;
+        color: var(--color-white);
+        position:relative;
+        overflow:hidden;
+        span {
+            position: relative;
+            color: var(--color-white);
+            @include transition(.3s ease-in-out);
+        }
+        &:before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background : var(--color-secondary);
+            color: var(--color-white);
+            left: 0;
+            bottom: 0;
+            @include transition(.3s ease-in-out);
+            opacity: 1;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border: 2px solid var(--color-secondary);
+            width: 100%;
+            height: 100%;
+            @include border-radius(5px);
+        }
+        &:hover {
+            span {
+                color: var(--color-secondary);
+            }
+            &:before {
+                width: 0;
+                color: var(--color-white);
+            }
+        }
+    }
+    &.btn-outline {
+        border: 1px solid var(--color-btn-outline);
+        color: var(--color-title);
+        &.btn-icon {
+            span {
+                svg {
+                    path {
+                        stroke: var(--color-primary);
+                    }
+                }
+            }
+        }
+    }
+    &:disabled {
+        background-color: var(--color-disable);
+        border-color: var(--color-disable);
+        color: var(--color-white);
+        cursor: not-allowed;
+    }
+    &.btn-icon {
+        img {
+            z-index: 1;
+        }
+        span {
+            @include flexbox();
+        }
+        &:hover {
+            span {
+                svg {
+                    path {
+                        stroke: var(--color-primary);
+                    }
+                }
+            }
+        }
+    }
+}
+.dropdown {
+    &:hover {
+        .dropdown-menu {
+            visibility: visible;
+            opacity: 1;
+            top: 25px !important;
+            margin-top: 25px !important;
+        }
+        .dropdown-toggle {
+            &::after {
+                transform: rotate(180deg);
+            }
+        }
+    }
+    .dropdown-toggle {
+        padding: 16px 0;
+        padding-right: 20px;
+        position: relative;
+        @include toRem(font-size, 16px);
+        color: var(--color-primary-text);
+        &::after {
+            // background: url(../../assets/images/down-arrow-red-icon.svg) no-repeat;
+            background-position: center top 5px;
+            border: 0;
+            width: 12px;
+            height: 15px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            @include transition(.3s ease-in-out);
+        }
+        &.show {
+            &::after {
+                transform: rotate(180deg);
+            }
+        }
+    }
+    .dropdown-menu {
+        box-shadow: 0px 6px 12px -6px rgba(24, 39, 75, 0.12), 0px 8px 24px -4px rgba(24, 39, 75, 0.08);
+        border: 1px solid var(--color-divider);
+        right: 0 !important;
+        left: unset !important;
+        margin-top: 50px !important;
+        transform: unset !important;
+        padding: 0;
+        display: block !important;
+        visibility: hidden;
+        opacity: 0;
+        &.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        li {
+            &:not(:last-child) {
+                border-bottom: 1px solid var(--color-divider);
+            }
+            .dropdown-item {
+                @include toRem(font-size, 16);
+                color: var(--color-primary-text);
+                padding: 13px 15px;
+            }
+        }
+    }
+}
