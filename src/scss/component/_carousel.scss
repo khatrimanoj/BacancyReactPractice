@@ -10,16 +10,20 @@
         width: 100%;
     }
     &__item {
-        transition: .3s transform;
-        width: 100%;
-        height: 100%;
-        @include justify-content($value: center);
-        @include align-items($value: center);
-        // display: none;
-        background-color: var(--color-primary);
-        aspect-ratio: 1 / 1;
+      width: 100%;
+      height: 100%;
+      @include justify-content($value: center);
+      @include align-items($value: center);
+      display: none;
+      opacity: 0;
+      visibility: hidden;
+      background-color: var(--color-primary);
+      animation: fadeIn 800ms both;
+        aspect-ratio: 3 / 1;
         &.active {
             @include flexbox();
+            opacity: 1;
+            visibility: visible;
         }
 
     }
@@ -54,7 +58,6 @@
         align-items: center;
         justify-content: center;
         height: 200px;
-        background-color: green;
         color: #fff;
       }
     }
@@ -78,4 +81,17 @@
     
   }
   
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      visibility: hidden;
+      // transform: translateX(100%);
+    }
+    100% {
+      opacity: 1;
+      visibility: visible;
+      // transform: translateX(0);
+    }
+  }
   
