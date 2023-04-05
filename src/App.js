@@ -11,7 +11,7 @@ import Sidebar from "./components/layout/Sidebar";
 function App() {
   return (
     <main>
-      {/* <BrowserRouter>
+      {/*dssdsdfdsf<BrowserRouter>
         <Header />
         <Routes>
           <Route path="/" element={<Home />}></Route>
