@@ -14,6 +14,7 @@ import { CarouselItem } from "../CarouselSlider/Carousel1";
 
 import Logo from "../../img/mindbox.svg";
 import Header from "../NavigationWithSubMenu/Header";
+import Card from "../Card/Card";
 
 const bannerContent = {
   bannerTitle: "Do What You Do",
@@ -81,6 +82,39 @@ export default function AllContent() {
   };
 
   const items = ["Item 1", "Item 2", "Item 3"];
+
+  const movieInfo = [
+    {
+      id: 1,
+      title: "Gadar",
+      img: "https://c8.alamy.com/comp/F762XE/film-movie-poster-of-titanic-F762XE.jpg",
+      year: "2019",
+      tag: ["Thriller", "Comedy"],
+    },
+    {
+      id: 2,
+      title: "Gadar",
+      img: "https://c8.alamy.com/comp/F762XE/film-movie-poster-of-titanic-F762XE.jpg",
+      year: "2018",
+      tag: ["Thriller", "Comedy"],
+    },
+    // {
+    //   id: 3,
+    //   title: "Hungama",
+    //   img: "https://c8.alamy.com/comp/F762XE/film-movie-poster-of-titanic-F762XE.jpg",
+    //   year: "2017",
+    //   tag: ["Comedy"],
+    // },
+  ];
+
+  const movieCard = movieInfo.map((items, i) => (
+    <Card
+      cardTitle={items.title}
+      cardImage={items.img}
+      cardDesc={items.tag}
+      key={i}
+    />
+  ));
 
   return (
     <div className="main-content">
@@ -390,6 +424,12 @@ export default function AllContent() {
               <img src={bannerImage} alt="carousel slider" />
             </CarouselItem>
           </Carousel1>
+        </div>
+      </Section>
+      <Section id="cardComponent">
+        <div className="container">
+          <h2 className="mb-3">Card Component</h2>
+          <div className="row">{movieCard}</div>
         </div>
       </Section>
     </div>

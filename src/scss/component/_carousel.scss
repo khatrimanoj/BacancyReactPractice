@@ -95,3 +95,38 @@
     }
   }
   
+#cardComponent {
+  .card {
+    @include toRem(width, 250);
+    @include flexbox();
+    @include flex-direction($value: column);
+    &__header {
+      @include flexbox();
+      @include align-items($value: center);
+      padding: 10px 15px;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      h2 {
+        @include toRem(font-size, 16);
+      }
+    }
+    &__body {
+      border: 1px solid var(--color-box-border);
+      &--image {
+        width: 100%;
+        img {
+          @include toRem(max-height, 200);
+          margin: auto;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+    }
+    &__footer {
+      @include flexbox();
+      padding: 8px 15px;
+      border: 1px solid var(--color-box-border);
+      border-top: 0;
+    }
+  }
+}
